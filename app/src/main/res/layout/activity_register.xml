@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="#FBF0F0">
+
+  <ImageView
+      android:layout_width="100dp"
+      android:layout_height="100dp"
+      android:id="@+id/logo_reg"
+      android:layout_marginTop="35dp"
+      android:layout_alignParentTop="true"
+      app:srcCompat="@drawable/reg_logo"
+      android:layout_centerHorizontal="true"/>
+
+  <TextView
+      android:id="@+id/register_title"
+      android:layout_below="@+id/logo_reg"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:text="Register"
+      android:textAlignment="center"
+      android:textSize="30sp"
+      android:textColor="@color/colorPrimary"
+      android:textColorHint="@color/colorPrimary"
+      android:layout_marginTop="18dp"
+      android:textStyle="bold" />
+
+  <EditText
+      android:id="@+id/username"
+      android:layout_below="@+id/register_title"
+      android:layout_width="350dp"
+      android:layout_height="wrap_content"
+      android:hint="Name"
+      android:textSize="15sp"
+      android:textColor="@color/colorPrimary"
+      android:textColorHint="@color/colorPrimary"
+      android:minHeight="48dp"
+      android:layout_marginTop="20dp"
+      android:layout_centerHorizontal="true"
+      android:inputType="textPersonName" />
+
+  <EditText
+      android:id="@+id/password"
+      android:layout_width="350dp"
+      android:layout_height="wrap_content"
+      android:layout_below="@+id/username"
+      android:hint="Password"
+      android:minHeight="48dp"
+      android:textSize="15sp"
+      android:textColor="@color/colorPrimary"
+      android:textColorHint="@color/colorPrimary"
+      android:layout_marginTop="20dp"
+      android:layout_centerHorizontal="true"
+      android:inputType="textPassword" />
+
+  <EditText
+      android:id="@+id/etConfPass"
+      android:layout_width="350dp"
+      android:layout_height="wrap_content"
+      android:layout_below="@+id/password"
+      android:hint="Confirm Password"
+      android:minHeight="48dp"
+      android:textSize="15sp"
+      android:textColor="@color/colorPrimary"
+      android:textColorHint="@color/colorPrimary"
+      android:layout_marginTop="20dp"
+      android:layout_centerHorizontal="true"
+      android:inputType="textPassword"/>
+
+  <Button
+      android:id="@+id/register"
+      android:layout_width="300dp"
+      android:layout_centerHorizontal="true"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="25dp"
+      android:layout_below="@+id/etConfPass"
+      android:text="Register"
+      android:textColorHint="#fff"
+      android:textStyle="bold"
+      android:padding="10dp"
+      android:backgroundTint="@color/button"/>
+
+</RelativeLayout>
