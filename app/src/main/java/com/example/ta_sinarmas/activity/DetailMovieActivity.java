@@ -21,7 +21,6 @@ public class DetailMovieActivity extends AppCompatActivity {
         judul = findViewById(R.id.movie_title);
         deskripsi = findViewById(R.id.movie_overview);
         poster = findViewById(R.id.movie_poster);
-        rate = findViewById(R.id.movie_rating);
 
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
@@ -30,14 +29,12 @@ public class DetailMovieActivity extends AppCompatActivity {
             String judulFilm = bundle.getString("movieTitle");
             String overview_mov = bundle.getString("movieOverview");
             String image_path = bundle.getString("movieImagePath");
-            String rating = bundle.getString("Rating");
 
             judul.setText(judulFilm);
             deskripsi.setText(overview_mov);
-            rate.setText(rating);
 
             Glide.with(this)
-                    .load("https://image.tmdb.org/t/p/w500" + image_path)
+                    .load("https://image.tmdb.org/t/p/w500"+ image_path)
                     .into(poster);
         }
 

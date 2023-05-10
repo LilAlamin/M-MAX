@@ -54,7 +54,6 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MyViewHolder
                 intent.putExtra("movieTitle", selectedItem.title);
                 intent.putExtra("movieImagePath", selectedItem.posterPath);
                 intent.putExtra("movieOverview", selectedItem.overview);
-                intent.putExtra("Rating",selectedItem.rateMovie);
                 // Start detail activity
                 context.startActivity(intent);
             }

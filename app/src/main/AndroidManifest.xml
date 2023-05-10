@@ -14,9 +14,6 @@
         android:theme="@style/Theme.Ta_sinarmas"
         tools:targetApi="31">
         <activity
-            android:name=".ConfirmLogout"
-            android:exported="false" />
-        <activity
             android:name=".activity.DetailMovieActivity"
             android:exported="false" />
         <activity

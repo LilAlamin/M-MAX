@@ -5,6 +5,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -14,7 +16,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.RelativeLayout;
 
-import com.example.ta_sinarmas.ConfirmLogout;
 import com.example.ta_sinarmas.ItemMovie;
 import com.example.ta_sinarmas.JSONRequest;
 import com.example.ta_sinarmas.LoginActivity;
@@ -47,8 +48,19 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.logout:
-                Intent logout = new Intent(MainActivity.this, ConfirmLogout.class);
-                startActivity(logout);
+                final AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                builder.setIcon(R.drawable.baseline_exit_to_app_24);
+                builder.setTitle("Confirm Logout");
+                builder.setMessage("Do You Want To Logout?");
+                builder.setPositiveButton("yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        finish();
+                    }
+                });
+                builder.setNegativeButton("No",null);
+                final AlertDialog alertDialog = builder.create();
+                alertDialog.show();
                 return true;
 
         }

@@ -16,10 +16,6 @@ public class ItemMovie {
         return this;
     }
 
-    public ItemMovie setRateMovie(String rateMovie) {
-        this.rateMovie = rateMovie;
-        return this;
-    }
 
     public String getTitle() {
         return title;
@@ -29,10 +25,6 @@ public class ItemMovie {
     }
     public String getPosterPath() {
         return posterPath;
-    }
-
-    public String getRateMovie(){
-        return rateMovie;
     }
 
 }
