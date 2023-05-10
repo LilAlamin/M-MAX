@@ -18,14 +18,11 @@
         android:layout_marginStart="16dp"
         android:textSize="16sp"
         android:textColor="#000"
-<<<<<<< HEAD
+        android:text="Ini Judul "
         android:shadowColor="#808080"
         android:shadowDx="1.5"
         android:shadowDy="1.5"
-        android:shadowRadius="3.0"
-=======
->>>>>>> 2e7366166d9148ea4617cfcdcb57b5f211a5437c
-        android:text="JUDUL MOVIE"/>
+        android:shadowRadius="3.0"/>
     <TextView
         android:id="@+id/tvDeskripsi"
         android:layout_toRightOf="@id/imgMovie"
