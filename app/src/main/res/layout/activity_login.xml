@@ -82,7 +82,6 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/button"
         android:layout_marginTop="15dp"
-        android:textColor="@color/black"
         android:text="Don't have an account? Sign up here"
         android:textAlignment="center" />
 

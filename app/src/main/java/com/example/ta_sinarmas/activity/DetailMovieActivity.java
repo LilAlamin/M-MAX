@@ -40,7 +40,7 @@ public class DetailMovieActivity extends AppCompatActivity {
                     .load("https://image.tmdb.org/t/p/w500" + image_path)
                     .into(poster);
         }
-        
+
 
 
 

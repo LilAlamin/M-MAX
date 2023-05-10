@@ -2,6 +2,7 @@ package com.example.ta_sinarmas;
 
 public class ItemMovie {
     public String title, overview, posterPath,rateMovie;
+
     public ItemMovie setTitle(String title) {
         this.title = title;
         return this;
@@ -14,10 +15,12 @@ public class ItemMovie {
         this.posterPath = posterPath;
         return this;
     }
+
     public ItemMovie setRateMovie(String rateMovie) {
         this.rateMovie = rateMovie;
         return this;
     }
+
     public String getTitle() {
         return title;
     }
@@ -27,7 +30,9 @@ public class ItemMovie {
     public String getPosterPath() {
         return posterPath;
     }
+
     public String getRateMovie(){
         return rateMovie;
     }
+
 }
