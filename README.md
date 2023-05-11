@@ -14,8 +14,5 @@ Pada aplikasi ini, pengguna dapat melakukan pencarian film dengan menggunakan ka
 - Fixed minor bugs and issues.
 - Search Posibility
 - Minimum Android Is Android 8.1 ( Oreo )
+Download aplikasi terbaru di [release terbaru](https://github.com/[LilAlamin]/[TA-Sinarmas-Api]/releases/Final).
 
-Download aplikasi terbaru di [release terbaru]([
-](https://github.com/LilAlamin/TA-Sinarmas-Api/releases/tag/Final)).
-[
-](https://github.com/LilAlamin/TA-Sinarmas-Api/releases/tag/Final)
