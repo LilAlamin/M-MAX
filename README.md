@@ -14,3 +14,5 @@ Pada aplikasi ini, pengguna dapat melakukan pencarian film dengan menggunakan ka
 - Fixed minor bugs and issues.
 - Search Posibility
 - Minimum Android Is Android 8.1 ( Oreo )
+
+[Download APK](/final/app-debug.apk)
