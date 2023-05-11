@@ -15,4 +15,4 @@ Pada aplikasi ini, pengguna dapat melakukan pencarian film dengan menggunakan ka
 - Search Posibility
 - Minimum Android Is Android 8.1 ( Oreo )
 
-[Download APK](/releases/tag/Final/app-debug.apk)
+Download aplikasi terbaru di [release terbaru]([https://github.com/[username]/[repository]/releases/latest](https://github.com/LilAlamin/TA-Sinarmas-Api/releases/tag/Final)).
