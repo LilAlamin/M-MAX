@@ -1,6 +1,7 @@
 package com.example.ta_sinarmas.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -37,10 +38,29 @@ public class MainActivity extends AppCompatActivity {
         new MainTask(this).execute();
     }
 
-    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu, menu);
-        return super.onCreateOptionsMenu(menu);
+
+        // get reference to SearchView
+        MenuItem searchItem = menu.findItem(R.id.search);
+        SearchView searchView = (SearchView) searchItem.getActionView();
+
+        // set listener to perform search
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                // perform search with query
+                new SearchTask(MainActivity.this).execute(query);
+                return true;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                return false;
+            }
+        });
+
+        return true;
     }
 
     //Logout
@@ -104,3 +124,44 @@ class MainTask extends AsyncTask<Void, Void, JSONObject> {
         }
     }
 }
+class SearchTask extends AsyncTask<String, Void, JSONObject> {
+    private Activity activity;
+    public SearchTask(Activity activity){
+        this.activity = activity;
+    }
+
+    @Override
+    protected JSONObject doInBackground(String... params) {
+        String query = params[0];
+
+        JSONObject obj = new JSONRequest()
+                .setMethod(JSONRequest.HTTP_GET)
+                .setPath("3/search/movie?api_key=7cd825774cde56bac9a76cd82c020963&query=" + query)
+                .execute();
+
+        return obj;
+    }
+
+    @Override
+    public void onPostExecute(JSONObject obj){
+        try {
+            JSONArray datas = obj.getJSONArray("results");
+            List<ItemMovie> list = new ArrayList<>();
+            for(int i = 0; i < datas.length(); i++){
+                JSONObject data = datas.getJSONObject(i);
+                ItemMovie movie = new ItemMovie()
+                        .setTitle(data.getString("original_title"))
+                        .setOverview(data.getString("overview"))
+                        .setPosterPath(data.getString("poster_path"));
+                list.add(movie);
+            }
+            MovieAdapter adapter = new MovieAdapter(activity, list);
+            RecyclerView view = activity.findViewById(R.id.rvMovie);
+            view.setAdapter(adapter);
+            view.setLayoutManager(new LinearLayoutManager(activity));
+        } catch (Exception e) {
+            Log.w("Error Main", e);
+        }
+    }
+}
+
