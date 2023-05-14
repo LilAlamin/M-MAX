@@ -6,6 +6,11 @@ Pada aplikasi ini, pengguna dapat melakukan pencarian film dengan menggunakan ka
 
 ## New Release
 
+### Version 1.1 (14 May 2023)
+- Improved UI UX 
+- Fixed minor bugs and issues, for some devices that may not be able to interact
+- Trailer Movie Soon As Posible Its Coming To App
+
 ### Version 1.0 (May 2023)
 
 - Added search functionality for movies using TMDB API.
