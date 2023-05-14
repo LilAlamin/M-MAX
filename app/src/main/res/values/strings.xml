@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Lets Watch Movies</string>
-    <string name="search">search</string>
-    <string name="logout">logout</string>
+    <string name="search">Search</string>
+    <string name="logout">Logout</string>
     <string name="dialog_message">Apakah Anda Ingin Logout</string>
     <string name="title_message">FYC Alert Dialog</string>
 </resources>

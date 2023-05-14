@@ -56,6 +56,7 @@
         android:layout_alignStart="@+id/username"
         android:layout_marginStart="2dp"
         android:layout_marginTop="20dp"
+        android:inputType="textPassword"
         android:hint="Password"
         android:minHeight="48dp"
         android:textColor="@color/colorPrimary"
@@ -82,6 +83,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/button"
         android:layout_marginTop="15dp"
+        android:textColor="#222324"
         android:text="Don't have an account? Sign up here"
         android:textAlignment="center" />
 

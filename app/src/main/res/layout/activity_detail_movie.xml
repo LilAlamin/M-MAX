@@ -1,8 +1,10 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/rungkad">
 
     <LinearLayout
+        android:id="@+id/linlay1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -14,6 +16,8 @@
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
             android:scaleType="fitCenter" />
+
+
 
         <TextView
             android:id="@+id/movie_title"
@@ -35,12 +39,20 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:textAppearanceMedium" />
 
-        <TextView
-            android:id="@+id/movie_director"
+        <Button
+            android:id="@+id/btn_trailer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:textAppearanceMedium" />
-
+            android:hint="WATCH TRAILER"
+            android:textColorHint="#fff"
+            android:textStyle="bold"
+            android:backgroundTint="@color/button"
+            android:layout_marginTop="25dp"
+            android:padding="10dp"
+            android:elevation="10dp"
+            android:layout_margin="16dp" />
 
     </LinearLayout>
+
+
 </ScrollView>
