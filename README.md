@@ -24,5 +24,5 @@ Pada aplikasi ini, pengguna dapat melakukan pencarian film dengan menggunakan ka
 - When Your device is dark mode maybe app is very ugly
 
 
-#Download aplikasi terbaru di [release terbaru](https://github.com/LilAlamin/TA-Sinarmas-Api/releases/Final).
+#Download aplikasi terbaru di [release terbaru](https://github.com/LilAlamin/TA-Sinarmas-Api/releases/Update).
 
