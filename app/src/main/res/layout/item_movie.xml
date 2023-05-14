@@ -61,6 +61,7 @@
                         android:layout_marginStart="5dp"
                         android:layout_marginTop="16dp"
                         android:maxLines="4"
+                        android:textColor="@color/black"
                         android:text="INI DESKRIPSI FILM"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"/>
