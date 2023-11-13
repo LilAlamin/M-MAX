@@ -9,8 +9,13 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.style.ForegroundColorSpan;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -79,10 +84,43 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
                 builder.setNegativeButton("No",null);
+
+                //Mengatur Warna Teks Yes
+                SpannableString spannableString =new SpannableString("yes");
+                spannableString.setSpan(new ForegroundColorSpan(Color.RED),0,spannableString.length(),0);
+                builder.setPositiveButton(spannableString, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        finish();
+                    }
+                });
+                //Mengatur Warna Teks No
+                SpannableString spannableNo = new SpannableString("No");
+                spannableNo.setSpan(new ForegroundColorSpan(Color.RED),0,spannableNo.length(),0);
+                builder.setNegativeButton(spannableNo, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        builder.setNegativeButton("No",null);
+                    }
+                });
                 final AlertDialog alertDialog = builder.create();
                 alertDialog.show();
                 return true;
 
+            case R.id.contact:
+                String emailAddress = "ronaldrplb@gmail.com";
+                String subject = "Subject Email";
+                String body = "Isi email...";
+                Intent intent = new Intent(Intent.ACTION_SENDTO);
+                intent.setData(Uri.parse("mailto:" + emailAddress));
+                intent.putExtra(Intent.EXTRA_SUBJECT, subject);
+                intent.putExtra(Intent.EXTRA_TEXT, body);
+                startActivity(intent);
+                return true;
+
+//            case R.id.support:
+//                Intent sup = new Intent(MainActivity.this, SupportActivity.class);
+//                startActivity(sup);
         }
         return false;
     }
@@ -164,4 +202,3 @@ class SearchTask extends AsyncTask<String, Void, JSONObject> {
         }
     }
 }
-

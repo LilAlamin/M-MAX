@@ -26,7 +26,7 @@
       android:textSize="30sp"
       android:textColor="@color/colorPrimary"
       android:textColorHint="@color/colorPrimary"
-      android:layout_marginTop="18dp"
+      android:layout_marginTop="25dp"
       android:textStyle="bold" />
 
   <EditText
@@ -34,12 +34,14 @@
       android:layout_below="@+id/register_title"
       android:layout_width="350dp"
       android:layout_height="wrap_content"
+      android:drawableLeft="@drawable/baseline_person_add_24"
+      android:drawablePadding="5dp"
       android:hint="Name"
       android:textSize="15sp"
       android:textColor="@color/colorPrimary"
       android:textColorHint="@color/colorPrimary"
       android:minHeight="48dp"
-      android:layout_marginTop="20dp"
+      android:layout_marginTop="25dp"
       android:layout_centerHorizontal="true"
       android:inputType="textPersonName" />
 
@@ -48,12 +50,14 @@
       android:layout_width="350dp"
       android:layout_height="wrap_content"
       android:layout_below="@+id/username"
+      android:drawableLeft="@drawable/baseline_lock_24"
+      android:drawablePadding="5dp"
       android:hint="Password"
       android:minHeight="48dp"
       android:textSize="15sp"
       android:textColor="@color/colorPrimary"
       android:textColorHint="@color/colorPrimary"
-      android:layout_marginTop="20dp"
+      android:layout_marginTop="25dp"
       android:layout_centerHorizontal="true"
       android:inputType="textPassword" />
 
@@ -63,25 +67,30 @@
       android:layout_height="wrap_content"
       android:layout_below="@+id/password"
       android:hint="Confirm Password"
+      android:drawableLeft="@drawable/baseline_notes_24"
+      android:drawablePadding="5dp"
       android:minHeight="48dp"
       android:textSize="15sp"
       android:textColor="@color/colorPrimary"
       android:textColorHint="@color/colorPrimary"
-      android:layout_marginTop="20dp"
+      android:layout_marginTop="25dp"
       android:layout_centerHorizontal="true"
       android:inputType="textPassword"/>
 
   <Button
       android:id="@+id/register"
-      android:layout_width="300dp"
+      android:layout_width="220dp"
       android:layout_centerHorizontal="true"
-      android:layout_height="wrap_content"
-      android:layout_marginTop="25dp"
+      android:layout_height="50dp"
+      android:layout_marginTop="35dp"
       android:layout_below="@+id/etConfPass"
-      android:hint="Register"
-      android:textColorHint="#fff"
+      android:text="Register"
+      android:textSize="16sp"
+      android:textAllCaps="false"
+      android:textColor="#fff"
       android:textStyle="bold"
-      android:padding="10dp"
-      android:backgroundTint="@color/button"/>
+      app:backgroundTint="@null"
+      android:background="@drawable/custom_button"
+      android:elevation="10dp"/>
 
 </RelativeLayout>

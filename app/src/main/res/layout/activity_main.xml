@@ -6,13 +6,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activity.MainActivity"
-    android:background="@drawable/ruwed">
+    android:background="#FBF0F0">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvMovie"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:listitem="@layout/item_movie"/>
+        tools:listitem="@layout/item_movie" />
 
 
 </RelativeLayout>

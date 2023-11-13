@@ -3,20 +3,21 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:padding="12dp"
+    android:padding="5dp"
 
     >
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="5dp">
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:cardCornerRadius="8dp"
-            app:cardMaxElevation="10dp"
+            app:cardElevation="10dp"
             app:cardBackgroundColor="#ffffff"
             >
 
@@ -61,7 +62,7 @@
                         android:layout_marginStart="5dp"
                         android:layout_marginTop="16dp"
                         android:maxLines="4"
-                        android:textColor="@color/black"
+                        android:textColor="@color/desc"
                         android:text="INI DESKRIPSI FILM"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"/>

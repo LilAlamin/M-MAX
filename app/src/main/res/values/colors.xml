@@ -10,6 +10,9 @@
     <color name="colorPrimary">#607d8b</color>
     <color name="colorPrimaryDark">#455a64</color>
     <color name="colorAccent">#0c0099</color>
-    <color name="button">#2D4059</color>
+    <color name="button">#FFFF</color>
     <color name="menu">#C9D6DF</color>
+    <color name="desc">#878787</color>
+    <color name="main_bg">#d2d2d4</color>
+    <color name="bar">#264c73</color>
 </resources>
