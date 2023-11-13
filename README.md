@@ -4,10 +4,11 @@
 
 Pada aplikasi ini, pengguna dapat melakukan pencarian film dengan menggunakan kata kunci tertentu, seperti judul film atau nama aktor/aktris yang membintangi film tersebut. Selain itu, pengguna juga dapat melihat daftar film populer, film terbaru, dan film dengan rating tertinggi.
 
-##Upcoming features
-- add cinema location in your area as posible
-- fixing button trailer
-  ( Big Update Its Coming Soon )
+## Upcoming features
+- add cinema location in your area as possible !
+- fixing button trailer 
+(Big Update is Coming Soon)
+
 
 ## New Release
 
