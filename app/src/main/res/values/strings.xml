@@ -4,4 +4,19 @@
     <string name="logout">Logout</string>
     <string name="dialog_message">Apakah Anda Ingin Logout</string>
     <string name="title_message">FYC Alert Dialog</string>
+    <string-array name="movie_sort_titles">
+        <item>Popular</item>
+        <item>Now Playing</item>
+        <item>Top Rated</item>
+        <item>Upcoming</item>
+    </string-array>
+
+    <string-array name="movie_sort_values">
+        <item>popular</item>
+        <item>now_playing</item>
+        <item>top_rated</item>
+        <item>upcoming</item>
+    </string-array>
+
+
 </resources>

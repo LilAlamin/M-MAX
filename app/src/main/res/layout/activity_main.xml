@@ -18,12 +18,19 @@
         android:text="Location"
     />
 
+    <Spinner
+        android:id="@+id/spinner_movie_filter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text_location"/>
+
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvMovie"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/text_location"
+        android:layout_below="@+id/spinner_movie_filter"
         tools:listitem="@layout/item_movie" />
 
 </RelativeLayout>

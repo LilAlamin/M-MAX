@@ -26,7 +26,11 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.RelativeLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.Manifest;
 import android.widget.Toast;
@@ -59,7 +63,29 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        new MainTask(this).execute();
+//        new MainTask(this).execute();
+        String[] movieTitles = getResources().getStringArray(R.array.movie_sort_titles);
+        String[] movieFilters = getResources().getStringArray(R.array.movie_sort_values);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.custom_spinner_item, movieTitles);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        Spinner spinnerMovieFilter = findViewById(R.id.spinner_movie_filter);
+        spinnerMovieFilter.setAdapter(adapter);
+
+        spinnerMovieFilter.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String filter = movieFilters[position];
+                new MainTask(MainActivity.this).execute(filter);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                // Another interface callback
+            }
+        });
+
+
+
 
         mFusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
 
@@ -219,16 +245,17 @@ public class MainActivity extends AppCompatActivity {
     }
 }
 
-class MainTask extends AsyncTask<Void, Void, JSONObject> {
+class MainTask extends AsyncTask<String, Void, JSONObject> {
     private Activity activity;
     public MainTask(Activity activity){
         this.activity = activity;
     }
     @Override
-    public JSONObject doInBackground(Void... voids){
+    public JSONObject doInBackground(String... filters){
+        String path = "3/movie/" + filters[0] + "?api_key=7cd825774cde56bac9a76cd82c020963";
         JSONObject obj = new JSONRequest()
                 .setMethod(JSONRequest.HTTP_GET)
-                .setPath("3/movie/popular?api_key=7cd825774cde56bac9a76cd82c020963")
+                .setPath(path)
                 .execute();
         // https://image.tmdb.org/t/p/w500
         return obj;
