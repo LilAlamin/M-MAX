@@ -2,6 +2,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:background="#FBF0F0">
 
     <LinearLayout
@@ -59,6 +60,30 @@
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
+
+<!--        <fragment-->
+<!--            android:id="@+id/map_fragment"-->
+<!--            android:name="com.google.android.gms.maps.MapFragment"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_marginTop="20dp"-->
+<!--            android:layout_height="200dp"-->
+<!--            tools:context=".DetailMovieActivity" />-->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lokasi Cinema Terdekat"
+            android:textSize="24sp"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/black"/>
+        <fragment
+            android:id="@+id/map_fragment"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="match_parent"
+            android:layout_marginTop="20dp"
+            android:layout_height="250dp"
+            tools:context=".DetailMovieActivity" />
+
 
         <Button
             android:id="@+id/btn_trailer"

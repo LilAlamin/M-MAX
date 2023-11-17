@@ -4,17 +4,31 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.ta_sinarmas.R;
+import com.google.android.gms.maps.CameraUpdate;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.LatLngBounds;
+import com.google.android.gms.maps.model.MarkerOptions;
 
 public class DetailMovieActivity extends AppCompatActivity {
     TextView judul, deskripsi, rate;
     ImageView poster;
+    private GoogleMap mMap;
+    SupportMapFragment mapFragment;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +38,24 @@ public class DetailMovieActivity extends AppCompatActivity {
         judul = findViewById(R.id.movie_title);
         deskripsi = findViewById(R.id.movie_overview);
         poster = findViewById(R.id.movie_poster);
+        Button trailerButton = findViewById(R.id.btn_trailer);
+
+        showMap();
+
+        trailerButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                // Membuat string pencarian untuk Youtube
+                String youtubeSearchQuery = "https://www.youtube.com/results?search_query=" + Uri.encode(judul.getText().toString() + " trailer");
+
+                // Membuat intent untuk menampilkan hasil pencarian YouTube dalam browser
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(youtubeSearchQuery + "&autoplay=1"));
+
+                // Memulai intent
+                startActivity(intent);
+            }
+        });
 
         // Menampilkan tombol back pada action bar
         ActionBar actionBar = getSupportActionBar();
@@ -49,6 +81,7 @@ public class DetailMovieActivity extends AppCompatActivity {
 
         }
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
@@ -61,5 +94,51 @@ public class DetailMovieActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    private void showMap() {
+        final SupportMapFragment supportMapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map_fragment);
+        supportMapFragment.getMapAsync(new OnMapReadyCallback() {
+            @Override
+            public void onMapReady(GoogleMap googleMap) {
+                mMap = googleMap;
+
+                // Lokasi Solo Paragon dan Grand Mall Solo
+                LatLng soloParagon = new LatLng(-7.562458, 110.809975);
+                LatLng grandMallSolo = new LatLng(-7.56635, 110.80737);
+                LatLng soloSquare = new LatLng(-7.560813, 110.78862);
+                LatLng transMart = new LatLng(-7.5605602,110.7676207);
+
+                // Tambahkan penanda pada map
+                mMap.addMarker(new MarkerOptions().position(soloParagon).title("Cinema XXI Solo Paragon"));
+                mMap.addMarker(new MarkerOptions().position(grandMallSolo).title("Cinema XXI Grand Mall Solo"));
+                mMap.addMarker(new MarkerOptions().position(soloSquare).title("Cinema XXI Solo Square"));
+                mMap.addMarker(new MarkerOptions().position(transMart).title("CGV TransMart Pabelan"));
+
+                // Aktifkan kontrol zoom dan dragging
+                mMap.getUiSettings().setZoomControlsEnabled(true);
+                mMap.getUiSettings().setScrollGesturesEnabled(true);
+
+                // Buat batas yang mencakup semua lokasi di map
+                final LatLngBounds.Builder builder = new LatLngBounds.Builder();
+                builder.include(soloParagon);
+                builder.include(grandMallSolo);
+                builder.include(soloSquare);
+                builder.include(transMart);
+
+                supportMapFragment.getView().addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
+                    @Override
+                    public void onLayoutChange(View v, int left, int top, int right, int bottom,
+                                               int oldLeft, int oldTop, int oldRight, int oldBottom) {
+                        v.removeOnLayoutChangeListener(this);  // clean up after ourselves
+
+                        final LatLngBounds bounds = builder.build();
+                        mMap.moveCamera(CameraUpdateFactory.newLatLngBounds(bounds, 100));
+                    }
+                });
+            }
+        });
+    }
+
+
 
 }
