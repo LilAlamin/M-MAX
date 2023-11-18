@@ -38,7 +38,7 @@ public class RegisterActivity extends AppCompatActivity {
 
                     long val = db.addUser(username,password);
                     if (val > 0) {
-                        Toast.makeText(RegisterActivity.this, "Anda Telah Terdafar", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(RegisterActivity.this, "Anda Telah Berhasil Mendaftar", Toast.LENGTH_SHORT).show();
                         Intent moveTologin =  new Intent(RegisterActivity.this, LoginActivity.class);
                         startActivity(moveTologin);
                     }

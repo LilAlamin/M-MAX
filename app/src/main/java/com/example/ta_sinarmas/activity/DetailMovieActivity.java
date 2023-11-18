@@ -2,8 +2,12 @@ package com.example.ta_sinarmas.activity;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.location.Location;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -14,6 +18,8 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.ta_sinarmas.R;
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -22,12 +28,14 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.tasks.OnSuccessListener;
 
 public class DetailMovieActivity extends AppCompatActivity {
     TextView judul, deskripsi, rate;
     ImageView poster;
     private GoogleMap mMap;
     SupportMapFragment mapFragment;
+    private FusedLocationProviderClient mFusedLocationProviderClient;
 
 
     @Override
@@ -41,6 +49,7 @@ public class DetailMovieActivity extends AppCompatActivity {
         Button trailerButton = findViewById(R.id.btn_trailer);
 
         showMap();
+        mFusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
 
         trailerButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -125,19 +134,43 @@ public class DetailMovieActivity extends AppCompatActivity {
                 builder.include(soloSquare);
                 builder.include(transMart);
 
-                supportMapFragment.getView().addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
-                    @Override
-                    public void onLayoutChange(View v, int left, int top, int right, int bottom,
-                                               int oldLeft, int oldTop, int oldRight, int oldBottom) {
-                        v.removeOnLayoutChangeListener(this);  // clean up after ourselves
+                // Cek dan minta ijin lokasi
+                if (ActivityCompat.checkSelfPermission(DetailMovieActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
+                        && ActivityCompat.checkSelfPermission(DetailMovieActivity.this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                    return;
+                }
 
-                        final LatLngBounds bounds = builder.build();
-                        mMap.moveCamera(CameraUpdateFactory.newLatLngBounds(bounds, 100));
-                    }
-                });
+                mMap.setMyLocationEnabled(true); // Baris baru ini
+
+                // Dapat lokasi terakhir
+                mFusedLocationProviderClient.getLastLocation()
+                        .addOnSuccessListener(new OnSuccessListener<Location>() {
+                            @Override
+                            public void onSuccess(Location location) {
+                                if (location != null) {
+                                    // Tinggalkan baris ini jika Anda tidak ingin menambahkan marker di lokasi pengguna
+                                    LatLng userLocation = new LatLng(location.getLatitude(), location.getLongitude());
+//                                    mMap.addMarker(new MarkerOptions().position(userLocation).title("Lokasi Anda Saat Ini"));
+                                    builder.include(userLocation);
+                                }
+
+                                supportMapFragment.getView().addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
+                                    @Override
+                                    public void onLayoutChange(View v, int left, int top, int right, int bottom,
+                                                               int oldLeft, int oldTop, int oldRight, int oldBottom) {
+                                        v.removeOnLayoutChangeListener(this);
+
+                                        final LatLngBounds bounds = builder.build();
+                                        mMap.moveCamera(CameraUpdateFactory.newLatLngBounds(bounds, 100));
+                                    }
+                                });
+                            }
+                        });
             }
         });
     }
+
+
 
 
 
