@@ -1,96 +1,118 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:padding="16dp"
-    android:background="#FBF0F0">
+    android:padding="20dp"
+    android:background="@drawable/login_bg">
 
-  <ImageView
-      android:layout_width="100dp"
-      android:layout_height="100dp"
-      android:id="@+id/logo_reg"
-      android:layout_marginTop="35dp"
-      android:layout_alignParentTop="true"
-      app:srcCompat="@drawable/reg_logo"
-      android:layout_centerHorizontal="true"/>
+<!--  <ImageView-->
+<!--      android:layout_width="100dp"-->
+<!--      android:layout_height="100dp"-->
+<!--      android:id="@+id/logo_reg"-->
+<!--      android:layout_marginTop="35dp"-->
+<!--      android:layout_alignParentTop="true"-->
+<!--      app:srcCompat="@drawable/reg_logo"-->
+<!--      android:layout_centerHorizontal="true"/>-->
 
   <TextView
       android:id="@+id/register_title"
-      android:layout_below="@+id/logo_reg"
-      android:layout_width="match_parent"
+      android:layout_centerHorizontal="true"
+      android:layout_width="350dp"
       android:layout_height="wrap_content"
-      android:text="Register"
-      android:textAlignment="center"
-      android:textSize="30sp"
+      android:layout_marginTop="110dp"
+      android:text="REGISTER"
       android:textColor="@color/colorPrimary"
-      android:textColorHint="@color/colorPrimary"
-      android:layout_marginTop="25dp"
+      android:textSize="35sp"
       android:textStyle="bold" />
+
+
+  <View
+      android:layout_width="wrap_content"
+      android:layout_height="40dp"/>
+
+  <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:textColor="@color/colorPrimary"
+      android:text="Username"
+      android:alpha="0.7"
+      android:textStyle="bold"
+      />
 
   <EditText
       android:id="@+id/username"
-      android:layout_below="@+id/register_title"
       android:layout_width="350dp"
       android:layout_height="wrap_content"
-      android:drawableLeft="@drawable/baseline_person_add_24"
-      android:drawablePadding="5dp"
-      android:hint="Name"
       android:textSize="15sp"
+      android:backgroundTint="@color/colorPrimary"
       android:textColor="@color/colorPrimary"
-      android:textColorHint="@color/colorPrimary"
       android:minHeight="48dp"
-      android:layout_marginTop="25dp"
-      android:layout_centerHorizontal="true"
-      android:inputType="textPersonName" />
+      android:inputType="textPersonName"
+      android:maxLines="1"
+      android:hint="Username"/>
+
+  <View
+      android:layout_width="wrap_content"
+      android:layout_height="25dp"/>
+
+  <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Password"
+      android:textColor="@color/colorPrimary"
+      android:alpha="0.7"
+      android:textStyle="bold"
+      />
 
   <EditText
       android:id="@+id/password"
       android:layout_width="350dp"
       android:layout_height="wrap_content"
-      android:layout_below="@+id/username"
-      android:drawableLeft="@drawable/baseline_lock_24"
-      android:drawablePadding="5dp"
-      android:hint="Password"
       android:minHeight="48dp"
       android:textSize="15sp"
+      android:backgroundTint="@color/colorPrimary"
       android:textColor="@color/colorPrimary"
-      android:textColorHint="@color/colorPrimary"
-      android:layout_marginTop="25dp"
-      android:layout_centerHorizontal="true"
-      android:inputType="textPassword" />
+      android:hint="Password"
+      android:inputType="textPassword"
+      android:maxLines="1"/>
+
+  <View
+      android:layout_width="wrap_content"
+      android:layout_height="25dp"/>
+
+  <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Confirm Password"
+      android:textColor="@color/colorPrimary"
+      android:alpha="0.7"
+      android:textStyle="bold"
+      />
 
   <EditText
       android:id="@+id/etConfPass"
       android:layout_width="350dp"
       android:layout_height="wrap_content"
-      android:layout_below="@+id/password"
-      android:hint="Confirm Password"
-      android:drawableLeft="@drawable/baseline_notes_24"
-      android:drawablePadding="5dp"
       android:minHeight="48dp"
       android:textSize="15sp"
+      android:backgroundTint="@color/colorPrimary"
       android:textColor="@color/colorPrimary"
-      android:textColorHint="@color/colorPrimary"
-      android:layout_marginTop="25dp"
-      android:layout_centerHorizontal="true"
-      android:inputType="textPassword"/>
+      android:inputType="textPassword"
+      android:maxLines="1"
+      android:hint="Confirm Password"/>
 
   <Button
       android:id="@+id/register"
-      android:layout_width="220dp"
-      android:layout_centerHorizontal="true"
-      android:layout_height="50dp"
-      android:layout_marginTop="35dp"
-      android:layout_below="@+id/etConfPass"
-      android:text="Register"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="60dp"
+      android:text="REGISTER"
       android:textSize="16sp"
-      android:textAllCaps="false"
       android:textColor="#fff"
-      android:textStyle="bold"
+      android:layout_gravity="end"
       app:backgroundTint="@null"
-      android:background="@drawable/custom_button"
-      android:elevation="10dp"/>
+      android:background="@drawable/custom_button"/>
 
-</RelativeLayout>
+</LinearLayout>
