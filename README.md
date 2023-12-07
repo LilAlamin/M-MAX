@@ -10,7 +10,7 @@ Pada aplikasi ini, pengguna dapat melakukan pencarian film dengan menggunakan ka
 ## Additional Announcement:
 We are excited to announce that we will be changing the name of our application from "Lets Watch Movie" to "M-MAX." We, the RJR Creation developers, express our sincere gratitude for your valuable feedback, suggestions, and critiques in the previous version. Your input has been instrumental in shaping this update. Thank you for your continued support! 🚀
 
-![Logo](https://ibb.co/pXHSXwP)
+![Logo](https://i.ibb.co/mzn3zTB/Screenshot-2023-12-07-144820.png)
 
 
 ## Upcoming features
