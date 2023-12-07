@@ -1,4 +1,4 @@
-# TA-Sinarmas-Api
+# Lets Watch Movie Changes to M-MAX
 
 #Aplikasi Android yang bertema pencarian movie dengan TMDb adalah aplikasi yang memungkinkan pengguna untuk mencari informasi mengenai film atau movie seperti judul, sinopsis, gambar poster, dan informasi lainnya. Aplikasi ini menggunakan API dari The Movie Database (TMDb) untuk mendapatkan data tentang film.
 
