@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Lets Watch Movies</string>
+    <string name="app_name">M-MAX</string>
     <string name="search">Search</string>
     <string name="logout">Logout</string>
     <string name="dialog_message">Apakah Anda Ingin Logout</string>

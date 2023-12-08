@@ -7,7 +7,7 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="colorPrimary">#2661FA</color>
+    <color name="colorPrimary">#222831</color>
     <color name="colorPrimaryDark">#455a64</color>
     <color name="colorAccent">#0c0099</color>
     <color name="button">#FFFF</color>
@@ -15,5 +15,7 @@
     <color name="desc">#878787</color>
     <color name="main_bg">#d2d2d4</color>
     <color name="bar">#264c73</color>
+    <color name="wernoButton">#a17d59</color>
+    <color name="textCerah">#EEEEEE</color>
 
 </resources>

@@ -7,6 +7,8 @@ import androidx.core.app.ActivityCompat;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.location.Address;
+import android.location.Geocoder;
 import android.location.Location;
 import android.net.Uri;
 import android.os.Bundle;
@@ -29,6 +31,10 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnSuccessListener;
+
+import java.io.IOException;
+import java.util.List;
+import java.util.Locale;
 
 public class DetailMovieActivity extends AppCompatActivity {
     TextView judul, deskripsi, rate;
@@ -115,7 +121,7 @@ public class DetailMovieActivity extends AppCompatActivity {
                 LatLng soloParagon = new LatLng(-7.562458, 110.809975);
                 LatLng grandMallSolo = new LatLng(-7.56635, 110.80737);
                 LatLng soloSquare = new LatLng(-7.560813, 110.78862);
-                LatLng transMart = new LatLng(-7.5605602,110.7676207);
+                LatLng transMart = new LatLng(-7.5605602, 110.7676207);
 
                 // Tambahkan penanda pada map
                 mMap.addMarker(new MarkerOptions().position(soloParagon).title("Cinema XXI Solo Paragon"));
@@ -127,47 +133,54 @@ public class DetailMovieActivity extends AppCompatActivity {
                 mMap.getUiSettings().setZoomControlsEnabled(true);
                 mMap.getUiSettings().setScrollGesturesEnabled(true);
 
-                // Buat batas yang mencakup semua lokasi di map
-                final LatLngBounds.Builder builder = new LatLngBounds.Builder();
-                builder.include(soloParagon);
-                builder.include(grandMallSolo);
-                builder.include(soloSquare);
-                builder.include(transMart);
-
                 // Cek dan minta ijin lokasi
                 if (ActivityCompat.checkSelfPermission(DetailMovieActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
                         && ActivityCompat.checkSelfPermission(DetailMovieActivity.this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
                     return;
                 }
 
-                mMap.setMyLocationEnabled(true); // Baris baru ini
-
-                // Dapat lokasi terakhir
+                // Dapatkan lokasi terakhir
                 mFusedLocationProviderClient.getLastLocation()
                         .addOnSuccessListener(new OnSuccessListener<Location>() {
                             @Override
                             public void onSuccess(Location location) {
                                 if (location != null) {
-                                    // Tinggalkan baris ini jika Anda tidak ingin menambahkan marker di lokasi pengguna
+                                    // Tambahkan marker di lokasi pengguna
                                     LatLng userLocation = new LatLng(location.getLatitude(), location.getLongitude());
-//                                    mMap.addMarker(new MarkerOptions().position(userLocation).title("Lokasi Anda Saat Ini"));
-                                    builder.include(userLocation);
+                                    mMap.addMarker(new MarkerOptions().position(userLocation).title("Lokasi Anda Saat Ini"));
+
+                                    // Geser kamera ke lokasi pengguna
+                                    mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(userLocation, 15f));
+
+                                    // Tampilkan lokasi dengan kalimat di TextView
+                                    updateLocationText(location);
                                 }
-
-                                supportMapFragment.getView().addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
-                                    @Override
-                                    public void onLayoutChange(View v, int left, int top, int right, int bottom,
-                                                               int oldLeft, int oldTop, int oldRight, int oldBottom) {
-                                        v.removeOnLayoutChangeListener(this);
-
-                                        final LatLngBounds bounds = builder.build();
-                                        mMap.moveCamera(CameraUpdateFactory.newLatLngBounds(bounds, 100));
-                                    }
-                                });
                             }
                         });
             }
         });
+    }
+
+    private void updateLocationText(Location location) {
+        Geocoder geocoder = new Geocoder(DetailMovieActivity.this, Locale.getDefault());
+
+        double longitude = location.getLongitude();
+        double latitude = location.getLatitude();
+
+        List<Address> addresses = null;
+        try {
+            addresses = geocoder.getFromLocation(latitude, longitude, 1);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        String locationName = null;
+        if (addresses != null && addresses.size() > 0) {
+            locationName = addresses.get(0).getLocality();
+        }
+
+        TextView locationText = findViewById(R.id.text_location);
+        locationText.setText(String.format("Lokasi Anda: %s", locationName != null ? locationName : "Tidak Diketahui"));
     }
 
 

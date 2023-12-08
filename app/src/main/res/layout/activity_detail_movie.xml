@@ -3,7 +3,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="#FBF0F0">
+    android:background="#393E46">
 
     <LinearLayout
         android:id="@+id/linlay1"
@@ -18,7 +18,7 @@
             android:layout_height="wrap_content"
             app:shapeAppearanceOverlay="@style/circular"
             android:padding="5dp"
-            app:strokeColor="#fff"
+            app:strokeColor="@color/colorPrimary"
             app:strokeWidth="4dp"
             android:adjustViewBounds="true"
             android:scaleType="fitCenter" />
@@ -31,7 +31,7 @@
             app:cardElevation="5dp"
             app:cardCornerRadius="10dp"
             android:layout_marginTop="30dp"
-            app:cardBackgroundColor="#fff">
+            app:cardBackgroundColor="@color/colorPrimary">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -42,7 +42,7 @@
                 <TextView
                     android:id="@+id/movie_title"
                     android:layout_width="match_parent"
-                    android:textColor="@color/black"
+                    android:textColor="@color/textCerah"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:textAppearanceLarge"
                     android:textStyle="bold"
@@ -53,7 +53,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:textColor="@color/black"
+                    android:textColor="@color/textCerah"
                     android:textAppearance="?android:textAppearanceMedium"
                     android:padding="8dp"/>
 
@@ -71,11 +71,23 @@
 
         <TextView
             android:layout_width="wrap_content"
+            android:id="@+id/text1"
             android:layout_height="wrap_content"
             android:text="Lokasi Cinema Terdekat"
             android:textSize="24sp"
             android:layout_marginTop="10dp"
-            android:textColor="@color/black"/>
+            android:textColor="@color/textCerah"/>
+        <TextView
+            android:id="@+id/text_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/baseline_location_on_24"
+            android:drawablePadding="10dp"
+            android:textColor="@color/textCerah"
+            android:textSize="15dp"
+            android:text="Location"
+            android:layout_below="@+id/text1"
+            />
         <fragment
             android:id="@+id/map_fragment"
             android:name="com.google.android.gms.maps.SupportMapFragment"
@@ -91,13 +103,13 @@
             android:layout_height="wrap_content"
             android:text="Watch Trailer"
             android:textAllCaps="false"
-            android:textColor="#fff"
+            android:textColor="@color/textCerah"
             android:textStyle="bold"
             app:backgroundTint="@null"
             android:background="@drawable/custom_button"
             android:elevation="10dp"
-            android:layout_marginTop="25dp"
-            android:layout_margin="16dp"
+            android:layout_marginTop="35dp"
+            android:layout_marginBottom="15dp"
             />
 
     </LinearLayout>

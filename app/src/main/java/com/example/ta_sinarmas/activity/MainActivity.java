@@ -89,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
 
         mFusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
 
-        TextView locationText = findViewById(R.id.text_location);
+//        TextView locationText = findViewById(R.id.text_location);
 
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
                 && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
@@ -117,33 +117,33 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
 
-        mFusedLocationProviderClient.getLastLocation()
-                .addOnSuccessListener(this, new OnSuccessListener<Location>() {
-                    @Override
-                    public void onSuccess(Location location) {
-                        if (location != null) {
-                            Geocoder geocoder = new Geocoder(MainActivity.this, Locale.getDefault());
-
-                            double longitude = location.getLongitude();
-                            double latitude = location.getLatitude();
-
-                            List<Address> addresses = null;
-                            try {
-                                addresses = geocoder.getFromLocation(latitude, longitude, 1);
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                            }
-
-                            String locationName = null;
-                            if (addresses != null && addresses.size() > 0) {
-                                locationName = addresses.get(0).getLocality();
-                            }
-
-                            TextView locationText = findViewById(R.id.text_location);
-                            locationText.setText(String.format("Lokasi Anda saat ini: %s", locationName != null ? locationName : "Tidak Diketahui"));
-                        }
-                    }
-                });
+//        mFusedLocationProviderClient.getLastLocation()
+//                .addOnSuccessListener(this, new OnSuccessListener<Location>() {
+//                    @Override
+//                    public void onSuccess(Location location) {
+//                        if (location != null) {
+//                            Geocoder geocoder = new Geocoder(MainActivity.this, Locale.getDefault());
+//
+//                            double longitude = location.getLongitude();
+//                            double latitude = location.getLatitude();
+//
+//                            List<Address> addresses = null;
+//                            try {
+//                                addresses = geocoder.getFromLocation(latitude, longitude, 1);
+//                            } catch (IOException e) {
+//                                e.printStackTrace();
+//                            }
+//
+//                            String locationName = null;
+//                            if (addresses != null && addresses.size() > 0) {
+//                                locationName = addresses.get(0).getLocality();
+//                            }
+//
+//                            TextView locationText = findViewById(R.id.text_location);
+//                            locationText.setText(String.format("Lokasi Anda: %s", locationName != null ? locationName : "Tidak Diketahui"));
+//                        }
+//                    }
+//                });
     }
 
 

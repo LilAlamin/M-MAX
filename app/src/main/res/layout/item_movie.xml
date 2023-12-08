@@ -1,77 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:padding="5dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
-    >
-
-    <LinearLayout
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="5dp">
+        android:layout_height="wrap_content">
 
-        <androidx.cardview.widget.CardView
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:cardCornerRadius="8dp"
-            app:cardElevation="10dp"
-            app:cardBackgroundColor="#ffffff"
-            >
+            android:layout_gravity="bottom"
+            android:orientation="vertical"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp">
 
-            <LinearLayout
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cvFilm"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="5dp">
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                app:cardBackgroundColor="@color/colorPrimary"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="3dp">
 
-                <ImageView
-                    android:id="@+id/imgMovie"
-                    android:layout_width="150dp"
-                    android:layout_height="175dp"
-                    android:padding="8dp"
-                    android:src="@color/purple_200"
-                    />
-
-                <LinearLayout
+                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="8dp">
+                    android:layout_height="120dp"
+                    android:layout_marginStart="105dp">
 
-                    <TextView
-                        android:id="@+id/tvTitle"
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="5dp"
-                        android:layout_marginTop="13dp"
-                        android:shadowColor="#808080"
-                        android:shadowDx="1.5"
-                        android:shadowDy="1.5"
-                        android:shadowRadius="3.0"
-                        android:text="Ini Judul "
-                        android:textColor="#000"
-                        android:textSize="17sp" />
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:layout_marginEnd="4dp"
+                        android:orientation="vertical"
+                        android:padding="5dp">
 
-                    <TextView
-                        android:id="@+id/tvDeskripsi"
+                        <TextView
+                            android:id="@+id/tvTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="9dp"
+                            android:textColor="@android:color/white"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
 
-                        android:layout_below="@id/tvTitle"
-                        android:layout_marginStart="5dp"
-                        android:layout_marginTop="16dp"
-                        android:maxLines="4"
-                        android:textColor="@color/desc"
-                        android:text="INI DESKRIPSI FILM"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
+                        <TextView
+                            android:id="@+id/tvDeskripsi"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="7dp"
+                            android:ellipsize="end"
+                            android:maxLines="3"
+                            android:textAlignment="viewStart"
+                            android:textColor="@android:color/white"
+                            android:textSize="14sp" />
 
-                </LinearLayout>
-            </LinearLayout>
+                    </LinearLayout>
+
+                </RelativeLayout>
 
 
-        </androidx.cardview.widget.CardView>
-    </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start|center"
+            android:layout_marginStart="20dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="center">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="90dp"
+                android:layout_height="135dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="10dp"
+                app:cardCornerRadius="10dp">
+
+            <ImageView
+                android:id="@+id/imgMovie"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:scaleType="fitCenter"
+                />
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+    </FrameLayout>
 
 </RelativeLayout>

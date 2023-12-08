@@ -8,7 +8,7 @@
     tools:context=".LoginActivity"
     android:orientation="vertical"
     android:padding="20dp"
-    android:background="@drawable/login_bg">
+    android:background="@color/colorPrimary">
 
 
     <TextView
@@ -17,7 +17,7 @@
         android:text="LOGIN"
         android:textSize="30dp"
         android:textStyle="bold"
-        android:textColor="@color/colorPrimary"
+        android:textColor="@color/textCerah"
         android:id="@+id/textView4"
         android:layout_below="@+id/imageView2"
         android:layout_alignParentEnd="true"
@@ -41,8 +41,9 @@
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:minHeight="48dp"
-        android:textColor="@color/colorPrimary"
-        android:backgroundTint="@color/colorPrimary"
+        android:textColor="@color/textCerah"
+        android:textColorHint="@color/textCerah"
+        android:backgroundTint="@color/textCerah"
         android:textSize="15dp"
         android:hint="Username"/>
 
@@ -66,8 +67,9 @@
         android:layout_height="wrap_content"
         android:inputType="textPassword"
         android:minHeight="48dp"
-        android:backgroundTint="@color/colorPrimary"
-        android:textColor="@color/colorPrimary"
+        android:backgroundTint="@color/textCerah"
+        android:textColor="@color/textCerah"
+        android:textColorHint="@color/textCerah"
         android:textSize="15dp"
         android:hint="Password"/>
 
@@ -76,7 +78,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="right"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="60dp"
         android:background="@drawable/custom_button"
         android:text="LOGIN"
         android:textColor="#fff"
@@ -90,7 +92,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:text="Don't have an account? Sign up here"
-        android:textColor="#000"
+        android:textColor="@color/textCerah"
         android:textAlignment="textEnd"
         android:textStyle="bold"
         android:alpha="0.6"/>
