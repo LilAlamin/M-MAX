@@ -7,6 +7,7 @@ import androidx.core.app.ActivityCompat;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
@@ -27,6 +28,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -145,21 +147,39 @@ public class DetailMovieActivity extends AppCompatActivity {
                             @Override
                             public void onSuccess(Location location) {
                                 if (location != null) {
-                                    // Tambahkan marker di lokasi pengguna
+                                    // Tambahkan lingkaran biru di lokasi pengguna
                                     LatLng userLocation = new LatLng(location.getLatitude(), location.getLongitude());
-                                    mMap.addMarker(new MarkerOptions().position(userLocation).title("Lokasi Anda Saat Ini"));
+                                    mMap.addCircle(new CircleOptions()
+                                            .center(userLocation)
+                                            .radius(10)  // Adjust the radius as needed
+                                            .strokeColor(Color.BLUE)
+                                            .fillColor(Color.BLUE));
 
-                                    // Geser kamera ke lokasi pengguna
-                                    mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(userLocation, 15f));
+                                    // Geser kamera ke lokasi pengguna dan bioskop
+                                    LatLngBounds.Builder builder = new LatLngBounds.Builder();
+                                    builder.include(userLocation);
+                                    builder.include(soloParagon);
+                                    builder.include(grandMallSolo);
+                                    builder.include(soloSquare);
+                                    builder.include(transMart);
+
+                                    LatLngBounds bounds = builder.build();
+                                    int padding = 200; // Adjust padding as needed for increased zoom
+                                    mMap.moveCamera(CameraUpdateFactory.newLatLngBounds(bounds, padding));
 
                                     // Tampilkan lokasi dengan kalimat di TextView
                                     updateLocationText(location);
+
+                                    // Tambahkan button untuk zoom ke lokasi pengguna
+                                    mMap.setMyLocationEnabled(true);
+                                    mMap.getUiSettings().setMyLocationButtonEnabled(true);
                                 }
                             }
                         });
             }
         });
     }
+
 
     private void updateLocationText(Location location) {
         Geocoder geocoder = new Geocoder(DetailMovieActivity.this, Locale.getDefault());
