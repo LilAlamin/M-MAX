@@ -9,17 +9,14 @@
         android:id="@+id/linlay1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp">
+        android:orientation="vertical">
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/movie_poster"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:shapeAppearanceOverlay="@style/circular"
-            android:padding="5dp"
+
             app:strokeColor="@color/colorPrimary"
-            app:strokeWidth="4dp"
             android:adjustViewBounds="true"
             android:scaleType="fitCenter" />
 
@@ -29,15 +26,14 @@
             android:layout_height="wrap_content"
             android:padding="15dp"
             app:cardElevation="5dp"
-            app:cardCornerRadius="10dp"
-            android:layout_marginTop="30dp"
+
             app:cardBackgroundColor="@color/colorPrimary">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="5dp">
+                android:padding="21dp">
 
                 <TextView
                     android:id="@+id/movie_title"
@@ -46,16 +42,59 @@
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:textAppearanceLarge"
                     android:textStyle="bold"
-                    android:padding="8dp" />
+                    android:layout_marginTop="10dp"
+                    android:textSize="35sp"/>
 
                 <TextView
                     android:id="@+id/movie_overview"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="15dp"
                     android:textColor="@color/textCerah"
-                    android:textAppearance="?android:textAppearanceMedium"
-                    android:padding="8dp"/>
+                    android:textAppearance="?android:textAppearanceMedium" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:id="@+id/text1"
+                    android:layout_height="wrap_content"
+                    android:text="Lokasi Cinema Terdekat"
+                    android:textSize="24sp"
+                    android:layout_marginTop="60dp"
+                    android:textColor="@color/textCerah"/>
+                <TextView
+                    android:id="@+id/text_location"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/logo_lokasi_24"
+                    android:drawablePadding="10dp"
+                    android:textColor="@color/textCerah"
+                    android:textSize="15dp"
+                    android:text="Location"
+                    android:layout_below="@+id/text1"
+                    />
+                <fragment
+                    android:id="@+id/map_fragment"
+                    android:name="com.google.android.gms.maps.SupportMapFragment"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:layout_height="250dp"
+                    tools:context=".DetailMovieActivity" />
+
+
+                <Button
+                    android:id="@+id/btn_trailer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Watch Trailer"
+                    android:textAllCaps="false"
+                    android:textColor="@color/textCerah"
+                    android:textStyle="bold"
+                    app:backgroundTint="@null"
+                    android:background="@drawable/custom_button"
+                    android:elevation="10dp"
+                    android:layout_marginTop="35dp"
+                    android:layout_marginBottom="15dp"
+                    />
 
             </LinearLayout>
 
@@ -69,48 +108,7 @@
 <!--            android:layout_height="200dp"-->
 <!--            tools:context=".DetailMovieActivity" />-->
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:id="@+id/text1"
-            android:layout_height="wrap_content"
-            android:text="Lokasi Cinema Terdekat"
-            android:textSize="24sp"
-            android:layout_marginTop="10dp"
-            android:textColor="@color/textCerah"/>
-        <TextView
-            android:id="@+id/text_location"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:drawableStart="@drawable/baseline_location_on_24"
-            android:drawablePadding="10dp"
-            android:textColor="@color/textCerah"
-            android:textSize="15dp"
-            android:text="Location"
-            android:layout_below="@+id/text1"
-            />
-        <fragment
-            android:id="@+id/map_fragment"
-            android:name="com.google.android.gms.maps.SupportMapFragment"
-            android:layout_width="match_parent"
-            android:layout_marginTop="20dp"
-            android:layout_height="250dp"
-            tools:context=".DetailMovieActivity" />
 
-
-        <Button
-            android:id="@+id/btn_trailer"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Watch Trailer"
-            android:textAllCaps="false"
-            android:textColor="@color/textCerah"
-            android:textStyle="bold"
-            app:backgroundTint="@null"
-            android:background="@drawable/custom_button"
-            android:elevation="10dp"
-            android:layout_marginTop="35dp"
-            android:layout_marginBottom="15dp"
-            />
 
     </LinearLayout>
 
