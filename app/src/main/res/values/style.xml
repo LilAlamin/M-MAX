@@ -4,4 +4,8 @@
         <item name="android:windowFullscreen">true</item>
         <item name="android:windowContentOverlay">@null</item>
     </style>
+    
+    <style name="LoginTextLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">@color/mtrl_textinput_default_box_stroke_color</item>
+    </style>
 </resources>
