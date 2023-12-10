@@ -44,13 +44,35 @@
                     android:textStyle="bold"
                     android:layout_marginTop="10dp"
                     android:textSize="35sp"/>
+                <!-- Add a TextView for displaying genres -->
+<!--                <TextView-->
+<!--                    android:id="@+id/tvGenres"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:textColor="@android:color/black"-->
+<!--                    android:textSize="18sp"-->
+<!--                    android:layout_marginTop="15dp"-->
+<!--                    android:layout_marginBottom="15dp"/>-->
+
+<!--                &lt;!&ndash; Add this TextView for displaying voteAverage &ndash;&gt;-->
+<!--                <TextView-->
+<!--                    android:id="@+id/tvVoteAverage"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:textColor="@android:color/black"-->
+<!--                    android:textSize="18sp"-->
+<!--                    android:layout_marginTop="15dp"-->
+<!--                    android:layout_marginBottom="15dp"/>-->
+
+                <!-- The rest of your existing layout -->
+
 
                 <TextView
                     android:id="@+id/movie_overview"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
-                    android:textColor="@color/textCerah"
+                    android:textColor="@color/white"
                     android:textAppearance="?android:textAppearanceMedium" />
 
                 <TextView

@@ -35,8 +35,10 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnSuccessListener;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
 public class DetailMovieActivity extends AppCompatActivity {
     TextView judul, deskripsi, rate;
@@ -149,11 +151,11 @@ public class DetailMovieActivity extends AppCompatActivity {
                                 if (location != null) {
                                     // Tambahkan lingkaran biru di lokasi pengguna
                                     LatLng userLocation = new LatLng(location.getLatitude(), location.getLongitude());
-                                    mMap.addCircle(new CircleOptions()
-                                            .center(userLocation)
-                                            .radius(10)  // Adjust the radius as needed
-                                            .strokeColor(Color.BLUE)
-                                            .fillColor(Color.BLUE));
+//                                    mMap.addCircle(new CircleOptions()
+//                                            .center(userLocation)
+//                                            .radius(10)  // Adjust the radius as needed
+//                                            .strokeColor(Color.BLUE)
+//                                            .fillColor(Color.BLUE));
 
                                     // Geser kamera ke lokasi pengguna dan bioskop
                                     LatLngBounds.Builder builder = new LatLngBounds.Builder();
