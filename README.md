@@ -40,7 +40,7 @@ Kami dengan antusias mengumumkan bahwa kami akan mengganti nama aplikasi kami da
 - Pembaruan sumber data film
 - Menambahkan fitur baru: Temukan bioskop terdekat dengan menggunakan deteksi lokasi GPS
 - Memperbaiki beberapa bug dari versi sebelumnya
-- Merekam Lets Watch Movie menjadi M-MAX
+- Merebranding Lets Watch Movie menjadi M-MAX
 - Trailer film sekarang dapat diakses
 
 ### Version 1.1 (14 May 2023)
@@ -71,5 +71,5 @@ Kami dengan antusias mengumumkan bahwa kami akan mengganti nama aplikasi kami da
 
 
 
-#Download aplikasi Versi Terbaru [Klik Disini](https://github.com/LilAlamin/TA-Sinarmas-Api/releases/Update).
+#Download aplikasi Versi Terbaru [Klik Disini](https://github.com/LilAlamin/TA-Sinarmas-Api/releases/2.0).
 
