@@ -43,7 +43,7 @@ Kami dengan antusias mengumumkan bahwa kami akan mengganti nama aplikasi kami da
 - Merekam Lets Watch Movie menjadi M-MAX
 - Trailer film sekarang dapat diakses
 
-##Gratitude to Allah SWT And The Team  for the smooth execution of this 2.0 update.
+## Gratitude to Allah SWT And The Team  for the smooth execution of this 2.0 update.
 ## Terima Kasih kepada Allah SWT dan Tim atas pelaksanaan mulus pembaruan 2.0 ini.
 
 
